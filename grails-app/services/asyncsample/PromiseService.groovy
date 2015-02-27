@@ -30,4 +30,10 @@ class PromiseService {
         }
     }
 
+    def countNumberOfZeroesInFactorial(def num){
+        task{
+            "${getPromiseOfFactorialForVeryLargeNumber(num).get()}".count("0")
+        }
+    }
+
 }
