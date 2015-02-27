@@ -10,7 +10,7 @@ class PromiseService {
 
 
    def printZipCodesInfo() {
-        def t=["74172", "64840", "67202", "68508", "37201"].collect {z->
+        def t=["74172", "64840", "64841", "64842", "64843"].collect {z->
             task {
                 def response = new URL("http://zip.getziptastic.com/v2/US/$z").content.text
                 def json = grails.converters.JSON.parse(response)
