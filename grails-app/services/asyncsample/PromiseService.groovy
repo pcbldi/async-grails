@@ -20,4 +20,14 @@ class PromiseService {
        waitAll(t)
     }
 
+    def getFactorialForVeryLargeNumber(BigDecimal num){
+       (1..num).inject(1, {fact,i->(fact*i) as BigDecimal})
+    }
+
+    def getPromiseOfFactorialForVeryLargeNumber(BigDecimal num){
+        task{
+            getFactorialForVeryLargeNumber(num)
+        }
+    }
+
 }
