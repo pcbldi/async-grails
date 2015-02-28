@@ -39,7 +39,8 @@ class PromiseController {
        def tasks=readFileContent()
         println '>>'
         tasks.each{
-            it.then{String str-> countCharactersTask(str)}.then{String str-> containsWordTask(str,'Exception')}
+            it.then{String str-> countCharactersTask(str)}
+            it.then{String str-> containsWordTask(str,'Exception')}
         }
         waitAll(tasks)
         render "done"
@@ -61,7 +62,7 @@ class PromiseController {
 
     def readFileContent(){
         getFileContent().split("\\r?\\n").collect{String line->
-            task{return(line)}}
+            task{Thread.sleep(1000); return(line)}}
     }
 
 }
