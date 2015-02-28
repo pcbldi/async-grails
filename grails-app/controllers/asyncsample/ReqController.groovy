@@ -12,7 +12,7 @@ class ReqController {
         } else {
             def ctx = startAsync()
             ctx.start {
-                Thread.sleep(loops)
+                Thread.sleep(id)
                 log.info("Long Running")
                 render "Long Running"
                 ctx.complete()
